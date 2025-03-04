@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBR Housing Project Timeline</title>
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* Toggle visibility section */
+        .toggle-container {
+            margin-bottom: 24px;
+        }
+
+        .toggle-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .toggle-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .toggle-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-item input {
+            margin-right: 8px;
+            height: 16px;
+            width: 16px;
+        }
+
+        /* Summary stats */
+        .stats-container {
+            margin-bottom: 24px;
+            padding: 16px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .stats-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .pre-pbg {
+            background-color: #f3e8ff;
+        }
+
+        .pbg {
+            background-color: #e0f7ff;
+        }
+
+        .construction {
+            background-color: #e6ffee;
+        }
+
+        .total {
+            background-color: #f0f0f0;
+            grid-column: 1 / -1;
+        }
+
+        .stat-box h3 {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .stat-subtitle {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Gantt chart */
+        .gantt-container {
+            margin-bottom: 32px;
+        }
+
+        .gantt-header {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+        }
+
+        .gantt-phase-col {
+            width: 33.333%;
+            font-weight: 600;
+            padding-left: 8px;
+        }
+
+        .gantt-timeline-col {
+            width: 66.666%;
+            position: relative;
+        }
+
+        .timeline-markers {
+            position: absolute;
+            inset: 0;
+            display: flex;
+        }
+
+        .timeline-marker {
+            flex: 1;
+            border-left: 1px solid #ddd;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .gantt-row {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            margin-bottom: 8px;
+        }
+
+        .phase-label {
+            width: 33.333%;
+            padding-right: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .phase-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .phase-name {
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .gantt-bar-container {
+            width: 66.666%;
+            position: relative;
+            height: 24px;
+        }
+
+        .gantt-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bar-label {
+            color: white;
+            font-size: 12px;
+        }
+
+        .timeline-axis {
+            position: relative;
+            height: 24px;
+            margin-top: 8px;
+            padding-left: 33.333%;
+        }
+
+        .axis-line {
+            position: absolute;
+            left: 33.333%;
+            width: 66.666%;
+            height: 4px;
+            background-color: #ddd;
+            top: 0;
+        }
+
+        .axis-marker {
+            position: absolute;
+            height: 12px;
+            width: 2px;
+            background-color: #999;
+            top: 0;
+        }
+
+        /* Sliders section */
+        .sliders-container {
+            margin-bottom: 32px;
+        }
+
+        .sliders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .sliders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .slider-item {
+            margin-bottom: 12px;
+        }
+
+        .slider-item.disabled {
+            opacity: 0.5;
+        }
+
+        .slider-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .slider-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .slider-input {
+            flex-grow: 1;
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            appearance: none;
+        }
+
+        .slider-max {
+            font-size: 12px;
+        }
+
+        /* Phase details */
+        .details-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .details-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .details-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .column-header {
+            font-weight: bold;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .phase-detail {
+            padding: 8px;
+            border-left-width: 4px;
+            border-left-style: solid;
+        }
+
+        .phase-detail.disabled {
+            opacity: 0.5;
+        }
+
+        .phase-detail h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .phase-detail p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Phase-specific colors */
+        .inception-color { background-color: #9c27b0; }
+        .inception-text { color: #6a0080; }
+        .inception-border { border-left-color: #9c27b0; }
+        .inception-bg { background-color: #f3e5f5; }
+
+        .design-color { background-color: #3f51b5; }
+        .design-text { color: #303f9f; }
+        .design-border { border-left-color: #3f51b5; }
+        .design-bg { background-color: #e8eaf6; }
+
+        .drafting-color { background-color: #2196f3; }
+        .drafting-text { color: #1976d2; }
+        .drafting-border { border-left-color: #2196f3; }
+        .drafting-bg { background-color: #e3f2fd; }
+
+        .permit-color { background-color: #00bcd4; }
+        .permit-text { color: #0097a7; }
+        .permit-border { border-left-color: #00bcd4; }
+        .permit-bg { background-color: #e0f7fa; }
+
+        .sitePrep-color { background-color: #009688; }
+        .sitePrep-text { color: #00796b; }
+        .sitePrep-border { border-left-color: #009688; }
+        .sitePrep-bg { background-color: #e0f2f1; }
+
+        .foundation-color { background-color: #4caf50; }
+        .foundation-text { color: #388e3c; }
+        .foundation-border { border-left-color: #4caf50; }
+        .foundation-bg { background-color: #e8f5e9; }
+
+        .structure-color { background-color: #8bc34a; }
+        .structure-text { color: #689f38; }
+        .structure-border { border-left-color: #8bc34a; }
+        .structure-bg { background-color: #f1f8e9; }
+
+        .finishing-color { background-color: #ffc107; }
+        .finishing-text { color: #ffa000; }
+        .finishing-border { border-left-color: #ffc107; }
+        .finishing-bg { background-color: #fff8e1; }
+
+        .handover-color { background-color: #ff9800; }
+        .handover-text { color: #f57c00; }
+        .handover-border { border-left-color: #ff9800; }
+        .handover-bg { background-color: #fff3e0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>MBR Housing Project Timeline</h2>
+        <p class="subtitle">Low-Income Housing Project in Indonesia: From Inception to Completion</p>
+        
+        <!-- Phase visibility toggles -->
+        <div class="toggle-container">
+            <h3>Toggle Phase Visibility</h3>
+            <div class="toggle-grid" id="phase-toggles">
+                <!-- Phase toggles will be generated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Summary stats -->
+        <div class="stats-container" id="stats-container">
+            <!-- Stats will be generated by JavaScript -->
+        </div>
+        
+        <!-- Gantt Chart -->
+        <div class="gantt-container">
+            <h3>Gantt Chart Timeline</h3>
+            
+            <!-- Chart header -->
+            <div class="gantt-header">
+                <div class="gantt-phase-col">Phase</div>
+                <div class="gantt-timeline-col">
+                    <div class="timeline-markers" id="timeline-markers">
+                        <!-- Timeline markers will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gantt bars -->
+            <div class="gantt-bars" id="gantt-bars">
+                <!-- Gantt bars will be generated by JavaScript -->
+            </div>
+            
+            <!-- Timeline axis -->
+            <div class="timeline-axis">
+                <div class="axis-line"></div>
+                <div class="axis-marker" style="left: 33.333%"></div>
+                <div class="axis-marker" style="left: 41.6665%"></div>
+                <div class="axis-marker" style="left: 50%"></div>
+                <div class="axis-marker" style="left: 58.3335%"></div>
+                <div class="axis-marker" style="left: 66.6667%"></div>
+                <div class="axis-marker" style="left: 74.9999%"></div>
+                <div class="axis-marker" style="left: 83.3333%"></div>
+                <div class="axis-marker" style="left: 91.6666%"></div>
+                <div class="axis-marker" style="left: 100%"></div>
+            </div>
+        </div>
+        
+        <!-- Phase sliders -->
+        <div class="sliders-container">
+            <h3>Adjust Phase Durations</h3>
+            <div class="sliders-grid" id="phase-sliders">
+                <!-- Phase sliders will be generated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Phase details -->
+        <div class="details-container">
+            <div class="details-column">
+                <h3 class="column-header">Pre-PBG Phases</h3>
+                <div id="pre-pbg-details">
+                    <!-- Pre-PBG phase details will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="details-column">
+                <h3 class="column-header">PBG & Initial Construction</h3>
+                <div id="pbg-construction-details">
+                    <!-- PBG & construction phase details will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="details-column">
+                <h3 class="column-header">Construction Completion</h3>
+                <div id="completion-details">
+                    <!-- Completion phase details will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Phase data
+        const phases = [
+            { 
+                id: "inception",
+                name: "Project Inception", 
+                days: 14,
+                min: 7, 
+                max: 30,
+                visible: true,
+                color: "inception-color",
+                textColor: "inception-text",
+                borderColor: "inception-border",
+                bgColor: "inception-bg",
+                description: "Initial planning, feasibility studies, market research, land acquisition, and stakeholder engagement",
+                category: "pre-pbg"
+            },
+            { 
+                id: "design",
+                name: "Design Phase", 
+                days: 30,
+                min: 14, 
+                max: 60,
+                visible: true,
+                color: "design-color",
+                textColor: "design-text",
+                borderColor: "design-border",
+                bgColor: "design-bg",
+                description: "Architectural concept, engineering design, design development, and initial cost estimates",
+                category: "pre-pbg"
+            },
+            { 
+                id: "drafting",
+                name: "Drafting & Documentation", 
+                days: 21,
+                min: 10, 
+                max: 45,
+                visible: true,
+                color: "drafting-color",
+                textColor: "drafting-text",
+                borderColor: "drafting-border",
+                bgColor: "drafting-bg",
+                description: "Detailed drawings, construction documents, specifications, and permit application preparation",
+                category: "pre-pbg"
+            },
+            { 
+                id: "permit",
+                name: "PBG Permit Process", 
+                days: 28,
+                min: 14, 
+                max: 60,
+                visible: true,
+                color: "permit-color",
+                textColor: "permit-text",
+                borderColor: "permit-border",
+                bgColor: "permit-bg",
+                description: "Government review, technical evaluations, revisions if necessary, and final permit issuance",
+                category: "pbg-construction"
+            },
+            { 
+                id: "sitePrep",
+                name: "Site Preparation", 
+                days: 14,
+                min: 7, 
+                max: 30,
+                visible: true,
+                color: "sitePrep-color",
+                textColor: "sitePrep-text",
+                borderColor: "sitePrep-border",
+                bgColor: "sitePrep-bg",
+                description: "Clearing, excavation, leveling, temporary facilities setup, and utilities connection",
+                category: "pbg-construction"
+            },
+            { 
+                id: "foundation",
+                name: "Foundation Work", 
+                days: 21,
+                min: 14, 
+                max: 45,
+                visible: true,
+                color: "foundation-color",
+                textColor: "foundation-text",
+                borderColor: "foundation-border",
+                bgColor: "foundation-bg",
+                description: "Foundation excavation, formwork, reinforcement, concrete pouring, and curing",
+                category: "pbg-construction"
+            },
+            { 
+                id: "structure",
+                name: "Structural Construction", 
+                days: 30,
+                min: 21, 
+                max: 60,
+                visible: true,
+                color: "structure-color",
+                textColor: "structure-text",
+                borderColor: "structure-border",
+                bgColor: "structure-bg",
+                description: "Columns, beams, floor slabs, walls, roof structure, and weather protection",
+                category: "completion"
+            },
+            { 
+                id: "finishing",
+                name: "Finishing Work", 
+                days: 25,
+                min: 14, 
+                max: 45,
+                visible: true,
+                color: "finishing-color",
+                textColor: "finishing-text",
+                borderColor: "finishing-border",
+                bgColor: "finishing-bg",
+                description: "Interior finishes, electrical, plumbing, flooring, painting, fixtures, and landscaping",
+                category: "completion"
+            },
+            { 
+                id: "handover",
+                name: "Inspection & Handover", 
+                days: 7,
+                min: 3, 
+                max: 21,
+                visible: true,
+                color: "handover-color",
+                textColor: "handover-text",
+                borderColor: "handover-border",
+                bgColor: "handover-bg",
+                description: "Final inspections, quality control, defect resolution, documentation, and client handover",
+                category: "completion"
+            }
+        ];
+
+        // Function to calculate phase totals
+        function calcPhaseTotals() {
+            const prePBGPhases = ["inception", "design", "drafting"];
+            const pbgPhases = ["permit"];
+            
+            const prePBGDays = phases
+                .filter(phase => prePBGPhases.includes(phase.id) && phase.visible)
+                .reduce((sum, phase) => sum + phase.days, 0);
+                
+            const pbgDays = phases
+                .filter(phase => pbgPhases.includes(phase.id) && phase.visible)
+                .reduce((sum, phase) => sum + phase.days, 0);
+                
+            const postPBGDays = phases
+                .filter(phase => !prePBGPhases.includes(phase.id) && !pbgPhases.includes(phase.id) && phase.visible)
+                .reduce((sum, phase) => sum + phase.days, 0);
+                
+            const totalDays = prePBGDays + pbgDays + postPBGDays;
+                
+            return { prePBGDays, pbgDays, postPBGDays, totalDays };
+        }
+
+        // Function to convert days to months
+        function daysToMonths(days) {
+            return (days / 30).toFixed(1);
+        }
+
+        // Function to calculate start day for each phase
+        function calculateStartDays() {
+            const visiblePhases = phases.filter(phase => phase.visible);
+            let runningTotal = 0;
+            
+            return visiblePhases.map(phase => {
+                const startDay = runningTotal;
+                const result = { ...phase, startDay };
+                runningTotal += phase.days;
+                return result;
+            });
+        }
+
+        // Function to render phase toggles
+        function renderPhaseToggles() {
+            const container = document.getElementById('phase-toggles');
+            container.innerHTML = '';
+            
+            phases.forEach(phase => {
+                const toggleItem = document.createElement('div');
+                toggleItem.className = 'toggle-item';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `toggle-${phase.id}`;
+                checkbox.checked = phase.visible;
+                checkbox.addEventListener('change', () => {
+                    phases.find(p => p.id === phase.id).visible = checkbox.checked;
+                    updateUI();
+                });
+                
+                const label = document.createElement('label');
+                label.htmlFor = `toggle-${phase.id}`;
+                label.className = phase.visible ? phase.textColor : 'text-gray-400';
+                label.textContent = `${phase.name} (${phase.days}d)`;
+                
+                toggleItem.appendChild(checkbox);
+                toggleItem.appendChild(label);
+                container.appendChild(toggleItem);
+            });
+        }
+
+        // Function to render stats
+        function renderStats() {
+            const { prePBGDays, pbgDays, postPBGDays, totalDays } = calcPhaseTotals();
+            const container = document.getElementById('stats-container');
+            container.innerHTML = '';
+            
+            // Pre-PBG box
+            const prePBGBox = document.createElement('div');
+            prePBGBox.className = 'stat-box pre-pbg';
+            prePBGBox.innerHTML = `
+                <h3>Pre-PBG Phase</h3>
+                <p class="stat-value">${prePBGDays} days</p>
+                <p class="stat-subtitle">(${daysToMonths(prePBGDays)} months)</p>
+            `;
+            container.appendChild(prePBGBox);
+            
+            // PBG box
+            const pbgBox = document.createElement('div');
+            pbgBox.className = 'stat-box pbg';
+            pbgBox.innerHTML = `
+                <h3>PBG Processing</h3>
+                <p class="stat-value">${pbgDays} days</p>
+                <p class="stat-subtitle">(${daysToMonths(pbgDays)} months)</p>
+            `;
+            container.appendChild(pbgBox);
+            
+            // Construction box
+            const constructionBox = document.createElement('div');
+            constructionBox.className = 'stat-box construction';
+            constructionBox.innerHTML = `
+                <h3>Construction Phase</h3>
+                <p class="stat-value">${postPBGDays} days</p>
+                <p class="stat-subtitle">(${daysToMonths(postPBGDays)} months)</p>
+            `;
+            container.appendChild(constructionBox);
+            
+            // Total box
+            const totalBox = document.createElement('div');
+            totalBox.className = 'stat-box total';
+            totalBox.innerHTML = `
+                <h3>Total Project Duration</h3>
+                <p class="stat-value">${totalDays} days</p>
+                <p class="stat-subtitle">(${daysToMonths(totalDays)} months)</p>
+            `;
+            container.appendChild(totalBox);
+        }
+
+        // Function to render timeline markers
+        function renderTimelineMarkers() {
+            const { totalDays } = calcPhaseTotals();
+            const container = document.getElementById('timeline-markers');
+            container.innerHTML = '';
+            
+            [0, 25, 50, 75, 100].forEach(percent => {
+                const marker = document.createElement('div');
+                marker.className = 'timeline-marker';
+                marker.textContent = `${Math.round(totalDays * percent / 100)} days`;
+                container.appendChild(marker);
+            });
+        }
+
+        // Function to render Gantt bars
+        function renderGanttBars() {
+            const { totalDays } = calcPhaseTotals();
+            const phasesWithStartDay = calculateStartDays();
+            const container = document.getElementById('gantt-bars');
+            container.innerHTML = '';
+            
+            phasesWithStartDay.forEach(phase => {
+                const startPercent = (phase.startDay / totalDays) * 100;
+                const widthPercent = (phase.days / totalDays) * 100;
+                
+                const row = document.createElement('div');
+                row.className = 'gantt-row';
+                
+                const phaseLabel = document.createElement('div');
+                phaseLabel.className = 'phase-label';
+                
+                const phaseDot = document.createElement('div');
+                phaseDot.className = `phase-dot ${phase.color}`;
+                
+                const phaseName = document.createElement('div');
+                phaseName.className = 'phase-name';
+                phaseName.textContent = phase.name;
+                
+                phaseLabel.appendChild(phaseDot);
+                phaseLabel.appendChild(phaseName);
+                
+                const barContainer = document.createElement('div');
+                barContainer.className = 'gantt-bar-container';
+                
+                const bar = document.createElement('div');
+                bar.className = `gantt-bar ${phase.color}`;
+                bar.style.left = `${startPercent}%`;
+                bar.style.width = `${widthPercent}%`;
+                bar.style.minWidth = '10px';
+                
+                const barLabel = document.createElement('div');
+                barLabel.className = 'bar-label';
+                barLabel.textContent = `${phase.days}d`;
+                
+                bar.appendChild(barLabel);
+                barContainer.appendChild(bar);
+                
+                row.appendChild(phaseLabel);
+                row.appendChild(barContainer);
+                
+                container.appendChild(row);
+            });
+        }
+
+        // Function to render phase sliders
+        function renderPhaseSliders() {
+            const container = document.getElementById('phase-sliders');
+            container.innerHTML = '';
+            
+            phases.forEach(phase => {
+                const sliderItem = document.createElement('div');
+                sliderItem.className = `slider-item ${!phase.visible ? 'disabled' : ''}`;
+                
+                const label = document.createElement('label');
+                label.className = 'slider-label';
+                label.textContent = `${phase.name}: ${phase.days} days`;
+                
+                const sliderControl = document.createElement('div');
+                sliderControl.className = 'slider-control';
+                
+                const phaseDot = document.createElement('div');
+                phaseDot.className = `phase-dot ${phase.color}`;
+                
+                const slider = document.createElement('input');
+                slider.type = 'range';
+                slider.min = phase.min;
+                slider.max = phase.max;
+                slider.value = phase.days;
+                slider.className = 'slider-input';
+                slider.disabled = !phase.visible;
+                slider.addEventListener('input', () => {
+                    phases.find(p => p.id === phase.id).days = parseInt(slider.value);
+                    label.textContent = `${phase.name}: ${slider.value} days`;
+                    updateUI();
+                });
+                
+                const maxLabel = document.createElement('span');
+                maxLabel.className = 'slider-max';
+                maxLabel.textContent = `${phase.max}d`;
+                
+                sliderControl.appendChild(phaseDot);
+                sliderControl.appendChild(slider);
+                sliderControl.appendChild(maxLabel);
+                
+                sliderItem.appendChild(label);
+                sliderItem.appendChild(sliderControl);
+                
+                container.appendChild(sliderItem);
+            });
+        }
+
+        // Function to render phase details
+        function renderPhaseDetails() {
+            const prePBGContainer = document.getElementById('pre-pbg-details');
+            const pbgConstructionContainer = document.getElementById('pbg-construction-details');
+            const completionContainer = document.getElementById('completion-details');
+            
+            prePBGContainer.innerHTML = '';
+            pbgConstructionContainer.innerHTML = '';
+            completionContainer.innerHTML = '';
+            
+            phases.forEach(phase => {
+                const detailBox = document.createElement('div');
+                detailBox.className = `phase-detail ${phase.borderColor} ${phase.bgColor} ${!phase.visible ? 'disabled' : ''}`;
+                
+                const title = document.createElement('h4');
+                title.textContent = phase.name;
+                
+                const description = document.createElement('p');
+                description.textContent = phase.description;
+                
+                detailBox.appendChild(title);
+                detailBox.appendChild(description);
+                
+                if (phase.category === 'pre-pbg') {
+                    prePBGContainer.appendChild(detailBox);
+                } else if (phase.category === 'pbg-construction') {
+                    pbgConstructionContainer.appendChild(detailBox);
+                } else if (phase.category === 'completion') {
+                    completionContainer.appendChild(detailBox);
+                }
+            });
+        }
+
+        // Function to update the entire UI
+        function updateUI() {
+            renderPhaseToggles();
+            renderStats();
+            renderTimelineMarkers();
+            renderGanttBars();
+            renderPhaseSliders();
+            renderPhaseDetails();
+        }
+
+        // Initialize the UI
+        document.addEventListener('DOMContentLoaded', updateUI);
+    </script>
+</body>
+</html>
