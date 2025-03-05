@@ -4,1326 +4,512 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBR Housing Project Timeline</title>
-    <style>
-        /* Base styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-        
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: #1f2937;
-        }
-        
-        h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #1f2937;
-        }
-        
-        h4 {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #1f2937;
-        }
-        
-        p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .text-sm {
-            font-size: 0.875rem;
-        }
-        
-        .text-xs {
-            font-size: 0.75rem;
-        }
-        
-        .text-lg {
-            font-size: 1.125rem;
-        }
-        
-        .text-xl {
-            font-size: 1.25rem;
-        }
-        
-        .font-semibold {
-            font-weight: 600;
-        }
-        
-        .font-bold {
-            font-weight: 700;
-        }
-        
-        .font-medium {
-            font-weight: 500;
-        }
-        
-        .text-gray-400 {
-            color: #9ca3af;
-        }
-        
-        .text-gray-500 {
-            color: #6b7280;
-        }
-        
-        .text-gray-600 {
-            color: #4b5563;
-        }
-        
-        .text-gray-700 {
-            color: #374151;
-        }
-        
-        .text-gray-800 {
-            color: #1f2937;
-        }
-        
-        .text-red-600 {
-            color: #dc2626;
-        }
-        
-        .bg-gray-50 {
-            background-color: #f9fafb;
-        }
-        
-        .bg-gray-100 {
-            background-color: #f3f4f6;
-        }
-        
-        .bg-gray-200 {
-            background-color: #e5e7eb;
-        }
-        
-        .bg-gray-300 {
-            background-color: #d1d5db;
-        }
-        
-        .bg-purple-50 {
-            background-color: #f5f3ff;
-        }
-        
-        .bg-indigo-50 {
-            background-color: #eef2ff;
-        }
-        
-        .bg-blue-50 {
-            background-color: #eff6ff;
-        }
-        
-        .bg-cyan-50 {
-            background-color: #ecfeff;
-        }
-        
-        .bg-emerald-50 {
-            background-color: #ecfdf5;
-        }
-        
-        .bg-teal-50 {
-            background-color: #f0fdfa;
-        }
-        
-        .bg-green-50 {
-            background-color: #f0fdf4;
-        }
-        
-        .bg-lime-50 {
-            background-color: #f7fee7;
-        }
-        
-        .bg-amber-50 {
-            background-color: #fffbeb;
-        }
-        
-        .bg-orange-50 {
-            background-color: #fff7ed;
-        }
-        
-        .bg-purple-100 {
-            background-color: #ede9fe;
-        }
-        
-        .bg-cyan-100 {
-            background-color: #cffafe;
-        }
-        
-        .bg-green-100 {
-            background-color: #dcfce7;
-        }
-        
-        .bg-purple-500 {
-            background-color: #8b5cf6;
-        }
-        
-        .bg-indigo-500 {
-            background-color: #6366f1;
-        }
-        
-        .bg-blue-500 {
-            background-color: #3b82f6;
-        }
-        
-        .bg-cyan-500 {
-            background-color: #06b6d4;
-        }
-        
-        .bg-emerald-500 {
-            background-color: #10b981;
-        }
-        
-        .bg-teal-500 {
-            background-color: #14b8a6;
-        }
-        
-        .bg-green-600 {
-            background-color: #16a34a;
-        }
-        
-        .bg-lime-600 {
-            background-color: #65a30d;
-        }
-        
-        .bg-amber-500 {
-            background-color: #f59e0b;
-        }
-        
-        .bg-orange-500 {
-            background-color: #f97316;
-        }
-        
-        .text-white {
-            color: #ffffff;
-        }
-        
-        .text-purple-800 {
-            color: #5b21b6;
-        }
-        
-        .text-indigo-800 {
-            color: #3730a3;
-        }
-        
-        .text-blue-800 {
-            color: #1e40af;
-        }
-        
-        .text-cyan-800 {
-            color: #155e75;
-        }
-        
-        .text-emerald-800 {
-            color: #065f46;
-        }
-        
-        .text-teal-800 {
-            color: #115e59;
-        }
-        
-        .text-green-800 {
-            color: #166534;
-        }
-        
-        .text-lime-800 {
-            color: #3f6212;
-        }
-        
-        .text-amber-800 {
-            color: #92400e;
-        }
-        
-        .text-orange-800 {
-            color: #9a3412;
-        }
-        
-        .border-purple-500 {
-            border-color: #8b5cf6;
-        }
-        
-        .border-indigo-500 {
-            border-color: #6366f1;
-        }
-        
-        .border-blue-500 {
-            border-color: #3b82f6;
-        }
-        
-        .border-cyan-500 {
-            border-color: #06b6d4;
-        }
-        
-        .border-emerald-500 {
-            border-color: #10b981;
-        }
-        
-        .border-teal-500 {
-            border-color: #14b8a6;
-        }
-        
-        .border-green-600 {
-            border-color: #16a34a;
-        }
-        
-        .border-lime-600 {
-            border-color: #65a30d;
-        }
-        
-        .border-amber-500 {
-            border-color: #f59e0b;
-        }
-        
-        .border-orange-500 {
-            border-color: #f97316;
-        }
-        
-        .border-gray-300 {
-            border-color: #d1d5db;
-        }
-        
-        .border-l-4 {
-            border-left-width: 4px;
-            border-left-style: solid;
-        }
-        
-        .border-b {
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-        }
-        
-        .rounded {
-            border-radius: 0.25rem;
-        }
-        
-        .rounded-lg {
-            border-radius: 0.5rem;
-        }
-        
-        .rounded-full {
-            border-radius: 9999px;
-        }
-        
-        .p-2 {
-            padding: 0.5rem;
-        }
-        
-        .p-4 {
-            padding: 1rem;
-        }
-        
-        .p-6 {
-            padding: 1.5rem;
-        }
-        
-        .px-2 {
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-        
-        .py-1 {
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-        }
-        
-        .pb-1 {
-            padding-bottom: 0.25rem;
-        }
-        
-        .pl-2 {
-            padding-left: 0.5rem;
-        }
-        
-        .pr-2 {
-            padding-right: 0.5rem;
-        }
-        
-        .mb-1 {
-            margin-bottom: 0.25rem;
-        }
-        
-        .mb-2 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .mb-3 {
-            margin-bottom: 0.75rem;
-        }
-        
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-        
-        .mb-6 {
-            margin-bottom: 1.5rem;
-        }
-        
-        .mb-8 {
-            margin-bottom: 2rem;
-        }
-        
-        .mt-1 {
-            margin-top: 0.25rem;
-        }
-        
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
-        
-        .mt-8 {
-            margin-top: 2rem;
-        }
-        
-        .ml-2 {
-            margin-left: 0.5rem;
-        }
-        
-        .mr-2 {
-            margin-right: 0.5rem;
-        }
-        
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .w-full {
-            width: 100%;
-        }
-        
-        .w-1\/3 {
-            width: 33.333333%;
-        }
-        
-        .w-2\/3 {
-            width: 66.666667%;
-        }
-        
-        .w-3 {
-            width: 0.75rem;
-        }
-        
-        .h-1 {
-            height: 0.25rem;
-        }
-        
-        .h-3 {
-            height: 0.75rem;
-        }
-        
-        .h-4 {
-            height: 1rem;
-        }
-        
-        .h-6 {
-            height: 1.5rem;
-        }
-        
-        .h-8 {
-            height: 2rem;
-        }
-        
-        .h-10 {
-            height: 2.5rem;
-        }
-        
-        .h-full {
-            height: 100%;
-        }
-        
-        .min-w-10 {
-            min-width: 10px;
-        }
-        
-        .space-y-3 > * + * {
-            margin-top: 0.75rem;
-        }
-        
-        .space-y-4 > * + * {
-            margin-top: 1rem;
-        }
-        
-        .gap-2 {
-            gap: 0.5rem;
-        }
-        
-        .gap-4 {
-            gap: 1rem;
-        }
-        
-        .grid {
-            display: grid;
-        }
-        
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-        
-        .flex {
-            display: flex;
-        }
-        
-        .items-center {
-            align-items: center;
-        }
-        
-        .justify-center {
-            justify-content: center;
-        }
-        
-        .relative {
-            position: relative;
-        }
-        
-        .absolute {
-            position: absolute;
-        }
-        
-        .inset-0 {
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-        
-        .left-0 {
-            left: 0;
-        }
-        
-        .top-0 {
-            top: 0;
-        }
-        
-        .opacity-50 {
-            opacity: 0.5;
-        }
-        
-        .truncate {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        /* Range input styling */
-        input[type="range"] {
-            -webkit-appearance: none;
-            height: 8px;
-            border-radius: 4px;
-            background: #e5e7eb;
-            outline: none;
-            width: 100%;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #4b5563;
-            cursor: pointer;
-        }
-        
-        input[type="range"]::-moz-range-thumb {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #4b5563;
-            cursor: pointer;
-            border: none;
-        }
-        
-        input[type="range"]:disabled {
-            opacity: 0.5;
-        }
-        
-        /* Responsive grid */
-        @media (min-width: 768px) {
-            .md\\:grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            
-            .md\\:grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-            
-            .md\\:col-span-3 {
-                grid-column: span 3 / span 3;
-            }
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.20/babel.min.js"></script>
 </head>
-<body>
-    <div id="app">
-        <!-- Content will be loaded here by JavaScript -->
-        <div class="container text-center p-6">
-            <h2>Loading MBR Housing Project Timeline...</h2>
-            <p>Please wait while the application loads.</p>
-        </div>
-    </div>
+<body class="bg-gray-100">
+    <div id="root"></div>
 
-    <script>
-        // Minimal implementation of React-like functionality for this specific app
-        const createElement = (type, props = {}, ...children) => {
-            if (typeof type === 'function') {
-                return type(props);
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const TimelineChart = () => {
+          // Default values for each phase (in days)
+          const [inceptionDays, setInceptionDays] = useState(14); // Project inception & feasibility
+          const [designDays, setDesignDays] = useState(30); // Architectural & engineering design
+          const [draftingDays, setDraftingDays] = useState(21); // Detailed drafting & documentation
+          const [permitDays, setPermitDays] = useState(28); // PBG permit processing
+          const [greenCertDays, setGreenCertDays] = useState(60); // Green Building Certification process
+          const [sitePrepDays, setSitePrepDays] = useState(14); // Site preparation
+          const [foundationDays, setFoundationDays] = useState(21); // Foundation work
+          const [structureDays, setStructureDays] = useState(30); // Structural construction
+          const [finishingDays, setFinishingDays] = useState(25); // Finishing work
+          const [handoverDays, setHandoverDays] = useState(7); // Final inspection & handover
+          
+          // Visibility toggles for each phase
+          const [phaseVisibility, setPhaseVisibility] = useState({
+            inception: true,
+            design: true,
+            drafting: true,
+            permit: true,
+            greenCert: true,
+            sitePrep: true,
+            foundation: true,
+            structure: true,
+            finishing: true,
+            handover: true
+          });
+
+          // Toggle phase visibility
+          const togglePhase = (phase) => {
+            setPhaseVisibility({
+              ...phaseVisibility,
+              [phase]: !phaseVisibility[phase]
+            });
+          };
+
+          // Phase data for rendering
+          const phases = [
+            { 
+              id: "inception",
+              name: "Project Inception", 
+              days: inceptionDays, 
+              color: "bg-purple-500", 
+              textColor: "text-purple-800",
+              borderColor: "border-purple-500",
+              bgColor: "bg-purple-50",
+              setDays: setInceptionDays, 
+              min: 7, 
+              max: 30,
+              visible: phaseVisibility.inception,
+              description: "Initial planning, feasibility studies, market research, land acquisition, and stakeholder engagement",
+              group: "main",
+              dependsOn: null
+            },
+            { 
+              id: "design",
+              name: "Design Phase", 
+              days: designDays, 
+              color: "bg-indigo-500", 
+              textColor: "text-indigo-800",
+              borderColor: "border-indigo-500",
+              bgColor: "bg-indigo-50",
+              setDays: setDesignDays, 
+              min: 14, 
+              max: 60,
+              visible: phaseVisibility.design,
+              description: "Architectural concept, engineering design, design development, and initial cost estimates",
+              group: "main",
+              dependsOn: "inception"
+            },
+            { 
+              id: "drafting",
+              name: "Drafting & Documentation", 
+              days: draftingDays, 
+              color: "bg-blue-500", 
+              textColor: "text-blue-800",
+              borderColor: "border-blue-500",
+              bgColor: "bg-blue-50",
+              setDays: setDraftingDays, 
+              min: 10, 
+              max: 45,
+              visible: phaseVisibility.drafting,
+              description: "Detailed drawings, construction documents, specifications, and permit application preparation",
+              group: "main",
+              dependsOn: "design"
+            },
+            { 
+              id: "permit",
+              name: "PBG Permit Process", 
+              days: permitDays, 
+              color: "bg-cyan-500", 
+              textColor: "text-cyan-800",
+              borderColor: "border-cyan-500",
+              bgColor: "bg-cyan-50",
+              setDays: setPermitDays, 
+              min: 14, 
+              max: 60,
+              visible: phaseVisibility.permit,
+              description: "Government review, technical evaluations, revisions if necessary, and final permit issuance",
+              group: "main",
+              dependsOn: "drafting"
+            },
+            { 
+              id: "greenCert",
+              name: "Green Building Certification", 
+              days: greenCertDays, 
+              color: "bg-emerald-500", 
+              textColor: "text-emerald-800",
+              borderColor: "border-emerald-500",
+              bgColor: "bg-emerald-50",
+              setDays: setGreenCertDays, 
+              min: 30, 
+              max: 90,
+              visible: phaseVisibility.greenCert,
+              description: "Documentation submission, sustainability assessments, energy modeling, site inspections, and certification process",
+              group: "parallel",
+              dependsOn: "drafting",
+              parallelTo: "permit"
+            },
+            { 
+              id: "sitePrep",
+              name: "Site Preparation", 
+              days: sitePrepDays, 
+              color: "bg-teal-500", 
+              textColor: "text-teal-800",
+              borderColor: "border-teal-500",
+              bgColor: "bg-teal-50",
+              setDays: setSitePrepDays, 
+              min: 7, 
+              max: 30,
+              visible: phaseVisibility.sitePrep,
+              description: "Clearing, excavation, leveling, temporary facilities setup, and utilities connection",
+              group: "main",
+              dependsOn: "permit"
+            },
+            { 
+              id: "foundation",
+              name: "Foundation Work", 
+              days: foundationDays, 
+              color: "bg-green-600", 
+              textColor: "text-green-800",
+              borderColor: "border-green-600",
+              bgColor: "bg-green-50",
+              setDays: setFoundationDays, 
+              min: 14, 
+              max: 45,
+              visible: phaseVisibility.foundation,
+              description: "Foundation excavation, formwork, reinforcement, concrete pouring, and curing",
+              group: "main",
+              dependsOn: "sitePrep"
+            },
+            { 
+              id: "structure",
+              name: "Structural Construction", 
+              days: structureDays, 
+              color: "bg-lime-600", 
+              textColor: "text-lime-800",
+              borderColor: "border-lime-600",
+              bgColor: "bg-lime-50",
+              setDays: setStructureDays, 
+              min: 21, 
+              max: 60,
+              visible: phaseVisibility.structure,
+              description: "Columns, beams, floor slabs, walls, roof structure, and weather protection",
+              group: "main",
+              dependsOn: "foundation"
+            },
+            { 
+              id: "finishing",
+              name: "Finishing Work", 
+              days: finishingDays, 
+              color: "bg-amber-500", 
+              textColor: "text-amber-800",
+              borderColor: "border-amber-500",
+              bgColor: "bg-amber-50",
+              setDays: setFinishingDays, 
+              min: 14, 
+              max: 45,
+              visible: phaseVisibility.finishing,
+              description: "Interior finishes, electrical, plumbing, flooring, painting, fixtures, and landscaping",
+              group: "main",
+              dependsOn: "structure"
+            },
+            { 
+              id: "handover",
+              name: "Inspection & Handover", 
+              days: handoverDays, 
+              color: "bg-orange-500", 
+              textColor: "text-orange-800",
+              borderColor: "border-orange-500",
+              bgColor: "bg-orange-50",
+              setDays: setHandoverDays, 
+              min: 3, 
+              max: 21,
+              visible: phaseVisibility.handover,
+              description: "Final inspections, quality control, defect resolution, documentation, and client handover",
+              group: "main",
+              dependsOn: "finishing"
+            }
+          ];
+          
+          // Filter visible phases
+          const visiblePhases = phases.filter(phase => phase.visible);
+          
+          // Calculate start day for each phase based on dependencies
+          const calculateStartDays = () => {
+            // Clone the phases to avoid modifying the original
+            const phasesWithStartDay = [...phases].map(phase => ({...phase, startDay: 0, endDay: 0}));
+            
+            // First, calculate main sequence phases
+            let currentDay = 0;
+            for (const phase of phasesWithStartDay) {
+              if (phase.group === "main" && phase.visible) {
+                phase.startDay = currentDay;
+                phase.endDay = currentDay + phase.days;
+                currentDay = phase.endDay;
+              }
             }
             
-            const element = document.createElement(type);
-            
-            // Set properties
-            Object.entries(props || {}).forEach(([name, value]) => {
-                if (name === 'className') {
-                    element.className = value;
-                } else if (name === 'style' && typeof value === 'object') {
-                    Object.entries(value).forEach(([cssName, cssValue]) => {
-                        element.style[cssName] = cssValue;
-                    });
-                } else if (name.startsWith('on') && typeof value === 'function') {
-                    const eventName = name.slice(2).toLowerCase();
-                    element.addEventListener(eventName, value);
-                } else if (name !== 'children') {
-                    element.setAttribute(name, value);
+            // Then, calculate parallel phases
+            for (const phase of phasesWithStartDay) {
+              if (phase.group === "parallel" && phase.visible) {
+                // Find the phase it depends on
+                const dependentPhase = phasesWithStartDay.find(p => p.id === phase.dependsOn);
+                if (dependentPhase) {
+                  phase.startDay = dependentPhase.endDay;
                 }
-            });
+                phase.endDay = phase.startDay + phase.days;
+              }
+            }
             
-            // Append children
-            children.flat().forEach(child => {
-                if (child === null || child === undefined) return;
-                
-                const node = typeof child === 'object' 
-                    ? child 
-                    : document.createTextNode(child);
-                
-                element.appendChild(node);
-            });
+            return phasesWithStartDay.filter(phase => phase.visible);
+          };
+          
+          const phasesWithStartDay = calculateStartDays();
+          
+          // Calculate total days of the critical path (main sequence)
+          const mainPhasesDuration = phases
+            .filter(phase => phase.group === "main" && phase.visible)
+            .reduce((sum, phase) => sum + phase.days, 0);
+          
+          // Check if any parallel phases extend beyond the main sequence
+          const parallelPhases = phasesWithStartDay.filter(phase => phase.group === "parallel");
+          let maxEndDay = mainPhasesDuration;
+          
+          for (const phase of parallelPhases) {
+            if (phase.endDay > maxEndDay) {
+              maxEndDay = phase.endDay;
+            }
+          }
+          
+          const totalDays = maxEndDay;
+          
+          // Function to calculate pre-PBG, PBG, and post-PBG days
+          const calcPhaseTotals = () => {
+            const prePBGPhases = ["inception", "design", "drafting"];
+            const pbgPhases = ["permit"];
             
-            return element;
-        };
-        
-        // Simplified state management
-        const useState = (initialValue) => {
-            let state = initialValue;
-            const listeners = [];
-            
-            const setState = (newValue) => {
-                if (typeof newValue === 'function') {
-                    state = newValue(state);
-                } else {
-                    state = newValue;
-                }
-                listeners.forEach(listener => listener());
-            };
-            
-            const subscribe = (listener) => {
-                listeners.push(listener);
-                return () => {
-                    const index = listeners.indexOf(listener);
-                    if (index > -1) {
-                        listeners.splice(index, 1);
-                    }
-                };
-            };
-            
-            return [() => state, setState, subscribe];
-        };
-        
-        // Timeline Chart Component
-        const TimelineChart = () => {
-            // Phase state hooks
-            const [inceptionDays, setInceptionDays, subscribeInception] = useState(14);
-            const [designDays, setDesignDays, subscribeDesign] = useState(30);
-            const [draftingDays, setDraftingDays, subscribeDrafting] = useState(21);
-            const [permitDays, setPermitDays, subscribePermit] = useState(28);
-            const [greenCertDays, setGreenCertDays, subscribeGreenCert] = useState(60);
-            const [sitePrepDays, setSitePrepDays, subscribeSitePrep] = useState(14);
-            const [foundationDays, setFoundationDays, subscribeFoundation] = useState(21);
-            const [structureDays, setStructureDays, subscribeStructure] = useState(30);
-            const [finishingDays, setFinishingDays, subscribeFinishing] = useState(25);
-            const [handoverDays, setHandoverDays, subscribeHandover] = useState(7);
-            
-            // Visibility toggles
-            const [phaseVisibility, setPhaseVisibility, subscribeVisibility] = useState({
-                inception: true,
-                design: true,
-                drafting: true,
-                permit: true,
-                greenCert: true,
-                sitePrep: true,
-                foundation: true,
-                structure: true,
-                finishing: true,
-                handover: true
-            });
-            
-            // Toggle phase visibility
-            const togglePhase = (phase) => {
-                setPhaseVisibility(prevState => ({
-                    ...prevState,
-                    [phase]: !prevState[phase]
-                }));
-            };
-            
-            // Phase data
-            const getPhases = () => [
-                { 
-                    id: "inception",
-                    name: "Project Inception", 
-                    days: inceptionDays(), 
-                    color: "bg-purple-500", 
-                    textColor: "text-purple-800",
-                    borderColor: "border-purple-500",
-                    bgColor: "bg-purple-50",
-                    setDays: setInceptionDays, 
-                    min: 7, 
-                    max: 30,
-                    visible: phaseVisibility().inception,
-                    description: "Initial planning, feasibility studies, market research, land acquisition, and stakeholder engagement",
-                    group: "main",
-                    dependsOn: null
-                },
-                { 
-                    id: "design",
-                    name: "Design Phase", 
-                    days: designDays(), 
-                    color: "bg-indigo-500", 
-                    textColor: "text-indigo-800",
-                    borderColor: "border-indigo-500",
-                    bgColor: "bg-indigo-50",
-                    setDays: setDesignDays, 
-                    min: 14, 
-                    max: 60,
-                    visible: phaseVisibility().design,
-                    description: "Architectural concept, engineering design, design development, and initial cost estimates",
-                    group: "main",
-                    dependsOn: "inception"
-                },
-                { 
-                    id: "drafting",
-                    name: "Drafting & Documentation", 
-                    days: draftingDays(), 
-                    color: "bg-blue-500", 
-                    textColor: "text-blue-800",
-                    borderColor: "border-blue-500",
-                    bgColor: "bg-blue-50",
-                    setDays: setDraftingDays, 
-                    min: 10, 
-                    max: 45,
-                    visible: phaseVisibility().drafting,
-                    description: "Detailed drawings, construction documents, specifications, and permit application preparation",
-                    group: "main",
-                    dependsOn: "design"
-                },
-                { 
-                    id: "permit",
-                    name: "PBG Permit Process", 
-                    days: permitDays(), 
-                    color: "bg-cyan-500", 
-                    textColor: "text-cyan-800",
-                    borderColor: "border-cyan-500",
-                    bgColor: "bg-cyan-50",
-                    setDays: setPermitDays, 
-                    min: 14, 
-                    max: 60,
-                    visible: phaseVisibility().permit,
-                    description: "Government review, technical evaluations, revisions if necessary, and final permit issuance",
-                    group: "main",
-                    dependsOn: "drafting"
-                },
-                { 
-                    id: "greenCert",
-                    name: "Green Building Certification", 
-                    days: greenCertDays(), 
-                    color: "bg-emerald-500", 
-                    textColor: "text-emerald-800",
-                    borderColor: "border-emerald-500",
-                    bgColor: "bg-emerald-50",
-                    setDays: setGreenCertDays, 
-                    min: 30, 
-                    max: 90,
-                    visible: phaseVisibility().greenCert,
-                    description: "Documentation submission, sustainability assessments, energy modeling, site inspections, and certification process",
-                    group: "parallel",
-                    dependsOn: "drafting",
-                    parallelTo: "permit"
-                },
-                { 
-                    id: "sitePrep",
-                    name: "Site Preparation", 
-                    days: sitePrepDays(), 
-                    color: "bg-teal-500", 
-                    textColor: "text-teal-800",
-                    borderColor: "border-teal-500",
-                    bgColor: "bg-teal-50",
-                    setDays: setSitePrepDays, 
-                    min: 7, 
-                    max: 30,
-                    visible: phaseVisibility().sitePrep,
-                    description: "Clearing, excavation, leveling, temporary facilities setup, and utilities connection",
-                    group: "main",
-                    dependsOn: "permit"
-                },
-                { 
-                    id: "foundation",
-                    name: "Foundation Work", 
-                    days: foundationDays(), 
-                    color: "bg-green-600", 
-                    textColor: "text-green-800",
-                    borderColor: "border-green-600",
-                    bgColor: "bg-green-50",
-                    setDays: setFoundationDays, 
-                    min: 14, 
-                    max: 45,
-                    visible: phaseVisibility().foundation,
-                    description: "Foundation excavation, formwork, reinforcement, concrete pouring, and curing",
-                    group: "main",
-                    dependsOn: "sitePrep"
-                },
-                { 
-                    id: "structure",
-                    name: "Structural Construction", 
-                    days: structureDays(), 
-                    color: "bg-lime-600", 
-                    textColor: "text-lime-800",
-                    borderColor: "border-lime-600",
-                    bgColor: "bg-lime-50",
-                    setDays: setStructureDays, 
-                    min: 21, 
-                    max: 60,
-                    visible: phaseVisibility().structure,
-                    description: "Columns, beams, floor slabs, walls, roof structure, and weather protection",
-                    group: "main",
-                    dependsOn: "foundation"
-                },
-                { 
-                    id: "finishing",
-                    name: "Finishing Work", 
-                    days: finishingDays(), 
-                    color: "bg-amber-500", 
-                    textColor: "text-amber-800",
-                    borderColor: "border-amber-500",
-                    bgColor: "bg-amber-50",
-                    setDays: setFinishingDays, 
-                    min: 14, 
-                    max: 45,
-                    visible: phaseVisibility().finishing,
-                    description: "Interior finishes, electrical, plumbing, flooring, painting, fixtures, and landscaping",
-                    group: "main",
-                    dependsOn: "structure"
-                },
-                { 
-                    id: "handover",
-                    name: "Inspection & Handover", 
-                    days: handoverDays(), 
-                    color: "bg-orange-500", 
-                    textColor: "text-orange-800",
-                    borderColor: "border-orange-500",
-                    bgColor: "bg-orange-50",
-                    setDays: setHandoverDays, 
-                    min: 3, 
-                    max: 21,
-                    visible: phaseVisibility().handover,
-                    description: "Final inspections, quality control, defect resolution, documentation, and client handover",
-                    group: "main",
-                    dependsOn: "finishing"
-                }
-            ];
-            
-            // Calculate start day for each phase based on dependencies
-            const calculateStartDays = () => {
-                const phases = getPhases();
-                // Clone the phases to avoid modifying the original
-                const phasesWithStartDay = phases.map(phase => ({...phase, startDay: 0, endDay: 0}));
+            const prePBGDays = phases
+              .filter(phase => prePBGPhases.includes(phase.id) && phase.visible)
+              .reduce((sum, phase) => sum + phase.days, 0);
+              
+            const pbgDays = phases
+              .filter(phase => pbgPhases.includes(phase.id) && phase.visible)
+              .reduce((sum, phase) => sum + phase.days, 0);
+              
+            const postPBGDays = phases
+              .filter(phase => !prePBGPhases.includes(phase.id) && !pbgPhases.includes(phase.id) && phase.group === "main" && phase.visible)
+              .reduce((sum, phase) => sum + phase.days, 0);
+              
+            return { prePBGDays, pbgDays, postPBGDays };
+          };
+          
+          const { prePBGDays, pbgDays, postPBGDays } = calcPhaseTotals();
+          
+          // Convert days to months for display (approximate)
+          const daysToMonths = (days) => (days / 30).toFixed(1);
+
+          return (
+            <div className="p-6 max-w-5xl mx-auto bg-white rounded-lg shadow-md my-8">
+              <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">MBR Housing Project Timeline</h2>
+              <p className="text-center text-gray-600 mb-6">Low-Income Housing Project in Indonesia: From Inception to Completion</p>
+              
+              {/* Phase visibility toggles */}
+              <div className="mb-6">
+                <h3 className="font-bold mb-3">Toggle Phase Visibility</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  {phases.map((phase) => (
+                    <div key={phase.id} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={`toggle-${phase.id}`}
+                        checked={phase.visible}
+                        onChange={() => togglePhase(phase.id)}
+                        className="mr-2 h-4 w-4"
+                      />
+                      <label 
+                        htmlFor={`toggle-${phase.id}`}
+                        className={`text-sm ${phase.visible ? phase.textColor : 'text-gray-400'}`}
+                      >
+                        {phase.name} ({phase.days}d)
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Summary stats */}
+              <div className="mb-6 p-4 bg-gray-50 rounded-lg grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-center p-2 bg-purple-100 rounded">
+                  <h3 className="font-bold">Pre-PBG Phase</h3>
+                  <p className="text-lg font-semibold">{prePBGDays} days</p>
+                  <p className="text-sm text-gray-700">({daysToMonths(prePBGDays)} months)</p>
+                </div>
+                <div className="text-center p-2 bg-cyan-100 rounded">
+                  <h3 className="font-bold">PBG Processing</h3>
+                  <p className="text-lg font-semibold">{pbgDays} days</p>
+                  <p className="text-sm text-gray-700">({daysToMonths(pbgDays)} months)</p>
+                </div>
+                <div className="text-center p-2 bg-green-100 rounded">
+                  <h3 className="font-bold">Construction Phase</h3>
+                  <p className="text-lg font-semibold">{postPBGDays} days</p>
+                  <p className="text-sm text-gray-700">({daysToMonths(postPBGDays)} months)</p>
+                </div>
+                <div className="text-center p-2 bg-gray-200 rounded md:col-span-3">
+                  <h3 className="font-bold">Total Project Duration</h3>
+                  <p className="text-xl font-semibold">{totalDays} days</p>
+                  <p className="text-gray-700">({daysToMonths(totalDays)} months)</p>
+                  {phaseVisibility.greenCert && greenCertDays > permitDays && (
+                    <p className="text-sm text-red-600 mt-1">
+                      Note: Green Building Certification extends {greenCertDays - permitDays} days beyond PBG Process
+                    </p>
+                  )}
+                </div>
+              </div>
+              
+              {/* Gantt Chart */}
+              <div className="mb-8">
+                <h3 className="font-medium mb-3">Gantt Chart Timeline</h3>
                 
-                // First, calculate main sequence phases
-                let currentDay = 0;
-                for (const phase of phasesWithStartDay) {
-                    if (phase.group === "main" && phase.visible) {
-                        phase.startDay = currentDay;
-                        phase.endDay = currentDay + phase.days;
-                        currentDay = phase.endDay;
-                    }
-                }
+                {/* Chart header */}
+                <div className="flex border-b border-gray-300 pb-1">
+                  <div className="w-1/3 font-semibold pl-2">Phase</div>
+                  <div className="w-2/3 relative">
+                    <div className="absolute inset-0 flex">
+                      {[0, 25, 50, 75, 100].map((percent) => (
+                        <div 
+                          key={percent} 
+                          className="flex-1 border-l border-gray-300 text-xs text-gray-500"
+                          style={{ marginLeft: percent === 0 ? '-1px' : '0' }}
+                        >
+                          {Math.round(totalDays * percent / 100)} days
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
                 
-                // Then, calculate parallel phases
-                for (const phase of phasesWithStartDay) {
-                    if (phase.group === "parallel" && phase.visible) {
-                        // Find the phase it depends on
-                        const dependentPhase = phasesWithStartDay.find(p => p.id === phase.dependsOn);
-                        if (dependentPhase) {
-                            phase.startDay = dependentPhase.endDay;
-                        }
-                        phase.endDay = phase.startDay + phase.days;
-                    }
-                }
-                
-                return phasesWithStartDay.filter(phase => phase.visible);
-            };
-            
-            // Calculate total days and phase totals
-            const calculateTotals = () => {
-                const phases = getPhases();
-                const phasesWithStartDay = calculateStartDays();
-                
-                // Calculate total days of the critical path (main sequence)
-                const mainPhasesDuration = phases
-                    .filter(phase => phase.group === "main" && phase.visible)
-                    .reduce((sum, phase) => sum + phase.days, 0);
-                
-                // Check if any parallel phases extend beyond the main sequence
-                const parallelPhases = phasesWithStartDay.filter(phase => phase.group === "parallel");
-                let maxEndDay = mainPhasesDuration;
-                
-                for (const phase of parallelPhases) {
-                    if (phase.endDay > maxEndDay) {
-                        maxEndDay = phase.endDay;
-                    }
-                }
-                
-                const totalDays = maxEndDay;
-                
-                // Calculate pre-PBG, PBG, and post-PBG days
-                const prePBGPhases = ["inception", "design", "drafting"];
-                const pbgPhases = ["permit"];
-                
-                const prePBGDays = phases
-                    .filter(phase => prePBGPhases.includes(phase.id) && phase.visible)
-                    .reduce((sum, phase) => sum + phase.days, 0);
-                    
-                const pbgDays = phases
-                    .filter(phase => pbgPhases.includes(phase.id) && phase.visible)
-                    .reduce((sum, phase) => sum + phase.days, 0);
-                    
-                const postPBGDays = phases
-                    .filter(phase => !prePBGPhases.includes(phase.id) && !pbgPhases.includes(phase.id) && phase.group === "main" && phase.visible)
-                    .reduce((sum, phase) => sum + phase.days, 0);
-                
-                return { 
-                    totalDays, 
-                    prePBGDays, 
-                    pbgDays, 
-                    postPBGDays,
-                    phasesWithStartDay
-                };
-            };
-            
-            // Convert days to months
-            const daysToMonths = (days) => (days / 30).toFixed(1);
-            
-            // Create the main container
-            const container = createElement('div', { className: 'container' });
-            
-            // Title and description
-            container.appendChild(
-                createElement('h2', { className: 'text-2xl font-bold mb-4 text-center text-gray-800' }, 
-                    'MBR Housing Project Timeline'
-                )
-            );
-            container.appendChild(
-                createElement('p', { className: 'text-center text-gray-600 mb-6' }, 
-                    'Low-Income Housing Project in Indonesia: From Inception to Completion'
-                )
-            );
-            
-            // Phase visibility toggles
-            const togglesContainer = createElement('div', { className: 'mb-6' });
-            const togglesTitle = createElement('h3', { className: 'font-bold mb-3' }, 'Toggle Phase Visibility');
-            const togglesGrid = createElement('div', { className: 'grid grid-cols-2 md\\:grid-cols-3 gap-2' });
-            
-            // Create toggle elements
-            const createToggles = () => {
-                togglesGrid.innerHTML = '';
-                getPhases().forEach(phase => {
-                    const toggleWrapper = createElement('div', { className: 'flex items-center' });
-                    const checkbox = createElement('input', {
-                        type: 'checkbox',
-                        id: `toggle-${phase.id}`,
-                        className: 'mr-2 h-4 w-4',
-                        checked: phase.visible,
-                        onChange: () => {
-                            togglePhase(phase.id);
-                            renderApp();
-                        }
-                    });
-                    const label = createElement('label', {
-                        htmlFor: `toggle-${phase.id}`,
-                        className: `text-sm ${phase.visible ? phase.textColor : 'text-gray-400'}`
-                    }, `${phase.name} (${phase.days}d)`);
-                    
-                    toggleWrapper.appendChild(checkbox);
-                    toggleWrapper.appendChild(label);
-                    togglesGrid.appendChild(toggleWrapper);
-                });
-            };
-            
-            createToggles();
-            
-            togglesContainer.appendChild(togglesTitle);
-            togglesContainer.appendChild(togglesGrid);
-            container.appendChild(togglesContainer);
-            
-            // Summary stats
-            const renderSummaryStats = () => {
-                const { totalDays, prePBGDays, pbgDays, postPBGDays } = calculateTotals();
-                const summaryContainer = createElement('div', { 
-                    className: 'mb-6 p-4 bg-gray-50 rounded-lg grid grid-cols-1 md\\:grid-cols-3 gap-4' 
-                });
-                
-                // Pre-PBG phase
-                const prePBGBox = createElement('div', { className: 'text-center p-2 bg-purple-100 rounded' });
-                prePBGBox.appendChild(createElement('h3', { className: 'font-bold' }, 'Pre-PBG Phase'));
-                prePBGBox.appendChild(createElement('p', { className: 'text-lg font-semibold' }, `${prePBGDays} days`));
-                prePBGBox.appendChild(createElement('p', { className: 'text-sm text-gray-700' }, `(${daysToMonths(prePBGDays)} months)`));
-                summaryContainer.appendChild(prePBGBox);
-                
-                // PBG phase
-                const pbgBox = createElement('div', { className: 'text-center p-2 bg-cyan-100 rounded' });
-                pbgBox.appendChild(createElement('h3', { className: 'font-bold' }, 'PBG Processing'));
-                pbgBox.appendChild(createElement('p', { className: 'text-lg font-semibold' }, `${pbgDays} days`));
-                pbgBox.appendChild(createElement('p', { className: 'text-sm text-gray-700' }, `(${daysToMonths(pbgDays)} months)`));
-                summaryContainer.appendChild(pbgBox);
-                
-                // Construction phase
-                const constructionBox = createElement('div', { className: 'text-center p-2 bg-green-100 rounded' });
-                constructionBox.appendChild(createElement('h3', { className: 'font-bold' }, 'Construction Phase'));
-                constructionBox.appendChild(createElement('p', { className: 'text-lg font-semibold' }, `${postPBGDays} days`));
-                constructionBox.appendChild(createElement('p', { className: 'text-sm text-gray-700' }, `(${daysToMonths(postPBGDays)} months)`));
-                summaryContainer.appendChild(constructionBox);
-                
-                // Total duration
-                const totalBox = createElement('div', { className: 'text-center p-2 bg-gray-200 rounded md\\:col-span-3' });
-                totalBox.appendChild(createElement('h3', { className: 'font-bold' }, 'Total Project Duration'));
-                totalBox.appendChild(createElement('p', { className: 'text-xl font-semibold' }, `${totalDays} days`));
-                totalBox.appendChild(createElement('p', { className: 'text-gray-700' }, `(${daysToMonths(totalDays)} months)`));
-                
-                // Warning if green cert extends beyond PBG
-                if (phaseVisibility().greenCert && greenCertDays() > permitDays()) {
-                    totalBox.appendChild(createElement('p', { 
-                        className: 'text-sm text-red-600 mt-1' 
-                    }, `Note: Green Building Certification extends ${greenCertDays() - permitDays()} days beyond PBG Process`));
-                }
-                
-                summaryContainer.appendChild(totalBox);
-                
-                return summaryContainer;
-            };
-            
-            container.appendChild(renderSummaryStats());
-            
-            // Gantt Chart
-            const renderGanttChart = () => {
-                const { totalDays, phasesWithStartDay } = calculateTotals();
-                const ganttContainer = createElement('div', { className: 'mb-8' });
-                
-                // Chart title
-                ganttContainer.appendChild(createElement('h3', { 
-                    className: 'font-medium mb-3' 
-                }, 'Gantt Chart Timeline'));
-                
-                // Chart header
-                const headerRow = createElement('div', { className: 'flex border-b border-gray-300 pb-1' });
-                headerRow.appendChild(createElement('div', { 
-                    className: 'w-1/3 font-semibold pl-2' 
-                }, 'Phase'));
-                
-                const timelineHeader = createElement('div', { className: 'w-2/3 relative' });
-                const timeMarkers = createElement('div', { className: 'absolute inset-0 flex' });
-                
-                [0, 25, 50, 75, 100].forEach(percent => {
-                    const marker = createElement('div', {
-                        className: 'flex-1 border-l border-gray-300 text-xs text-gray-500',
-                        style: { marginLeft: percent === 0 ? '-1px' : '0' }
-                    }, `${Math.round(totalDays * percent / 100)} days`);
-                    
-                    timeMarkers.appendChild(marker);
-                });
-                
-                timelineHeader.appendChild(timeMarkers);
-                headerRow.appendChild(timelineHeader);
-                ganttContainer.appendChild(headerRow);
-                
-                // Gantt bars
-                const barsContainer = createElement('div', { className: 'mt-2' });
-                
-                phasesWithStartDay.forEach(phase => {
+                {/* Gantt bars */}
+                <div className="mt-2">
+                  {phasesWithStartDay.map((phase, index) => {
                     const startPercent = (phase.startDay / totalDays) * 100;
                     const widthPercent = (phase.days / totalDays) * 100;
                     
-                    const phaseRow = createElement('div', { className: 'flex items-center h-10 mb-2' });
-                    
-                    // Phase name column
-                    const nameCol = createElement('div', { className: 'w-1/3 pr-2 flex items-center' });
-                    nameCol.appendChild(createElement('div', { 
-                        className: `w-3 h-3 rounded-full ${phase.color} mr-2` 
-                    }));
-                    nameCol.appendChild(createElement('span', { 
-                        className: 'text-sm font-medium truncate' 
-                    }, phase.name));
-                    
-                    phaseRow.appendChild(nameCol);
-                    
-                    // Gantt bar column
-                    const barCol = createElement('div', { className: 'w-2/3 relative h-6' });
-                    const bar = createElement('div', {
-                        className: `absolute h-full rounded ${phase.color}`,
-                        style: { 
-                            left: `${startPercent}%`, 
-                            width: `${widthPercent}%`,
-                            minWidth: '10px'
-                        }
-                    });
-                    
-                    bar.appendChild(createElement('span', {
-                        className: 'absolute inset-0 flex items-center justify-center text-white text-xs'
-                    }, `${phase.days}d`));
-                    
-                    barCol.appendChild(bar);
-                    phaseRow.appendChild(barCol);
-                    
-                    barsContainer.appendChild(phaseRow);
-                });
+                    return (
+                      <div key={phase.id} className="flex items-center h-10 mb-2">
+                        <div className="w-1/3 pr-2 flex items-center">
+                          <div className={`w-3 h-3 rounded-full ${phase.color} mr-2`}></div>
+                          <span className="text-sm font-medium truncate">{phase.name}</span>
+                        </div>
+                        <div className="w-2/3 relative h-6">
+                          <div 
+                            className={`absolute h-full rounded ${phase.color}`} 
+                            style={{ 
+                              left: `${startPercent}%`, 
+                              width: `${widthPercent}%`,
+                              minWidth: '10px'
+                            }}
+                          >
+                            <span className="absolute inset-0 flex items-center justify-center text-white text-xs">
+                              {phase.days}d
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
                 
-                ganttContainer.appendChild(barsContainer);
+                {/* Timeline axis */}
+                <div className="relative h-6 w-full mt-2 pl-1/3">
+                  <div className="absolute left-0 w-2/3 h-1 bg-gray-300 top-0"></div>
+                  {[0, 25, 50, 75, 100].map((percent) => (
+                    <div 
+                      key={percent} 
+                      className="absolute h-3 w-0.5 bg-gray-400 top-0" 
+                      style={{ left: `${percent}%` }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Phase sliders */}
+              <div className="mb-8">
+                <h3 className="font-bold mb-3">Adjust Phase Durations</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {phases.map((phase) => (
+                    <div 
+                      key={phase.id} 
+                      className={`mb-3 ${!phase.visible ? 'opacity-50' : ''}`}
+                    >
+                      <label className="block mb-2 text-sm font-medium">
+                        {phase.name}: <span className="font-semibold">{phase.days} days</span>
+                        {phase.group === "parallel" && (
+                          <span className="ml-2 text-xs text-gray-500">(Parallel process)</span>
+                        )}
+                      </label>
+                      <div className="flex items-center gap-2">
+                        <div className={`w-3 h-3 rounded-full ${phase.color}`}></div>
+                        <input
+                          type="range"
+                          min={phase.min}
+                          max={phase.max}
+                          value={phase.days}
+                          onChange={(e) => phase.setDays(parseInt(e.target.value))}
+                          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                          disabled={!phase.visible}
+                        />
+                        <span className="text-xs">{phase.max}d</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Phase details */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-3">
+                  <h3 className="font-bold border-b pb-1">Pre-PBG Phases</h3>
+                  {phases.slice(0, 3).map((phase) => (
+                    <div 
+                      key={phase.id}
+                      className={`p-2 border-l-4 ${phase.borderColor} ${phase.bgColor} ${!phase.visible ? 'opacity-50' : ''}`}
+                    >
+                      <h4 className="font-medium text-sm">{phase.name}</h4>
+                      <p className="text-xs text-gray-700">{phase.description}</p>
+                    </div>
+                  ))}
+                </div>
                 
-                // Timeline axis
-                const timelineAxis = createElement('div', { 
-                    className: 'relative h-6 w-full mt-2 pl-1/3' 
-                });
+                <div className="space-y-3">
+                  <h3 className="font-bold border-b pb-1">PBG & Parallel Processes</h3>
+                  <div 
+                    className={`p-2 border-l-4 ${phases[3].borderColor} ${phases[3].bgColor} ${!phases[3].visible ? 'opacity-50' : ''}`}
+                  >
+                    <h4 className="font-medium text-sm">{phases[3].name}</h4>
+                    <p className="text-xs text-gray-700">{phases[3].description}</p>
+                  </div>
+                  <div 
+                    className={`p-2 border-l-4 ${phases[4].borderColor} ${phases[4].bgColor} ${!phases[4].visible ? 'opacity-50' : ''}`}
+                  >
+                    <h4 className="font-medium text-sm">{phases[4].name} <span className="text-xs text-gray-500">(Parallel)</span></h4>
+                    <p className="text-xs text-gray-700">{phases[4].description}</p>
+                  </div>
+                  <div 
+                    className={`p-2 border-l-4 ${phases[5].borderColor} ${phases[5].bgColor} ${!phases[5].visible ? 'opacity-50' : ''}`}
+                  >
+                    <h4 className="font-medium text-sm">{phases[5].name}</h4>
+                    <p className="text-xs text-gray-700">{phases[5].description}</p>
+                  </div>
+                  <div 
+                    className={`p-2 border-l-4 ${phases[6].borderColor} ${phases[6].bgColor} ${!phases[6].visible ? 'opacity-50' : ''}`}
+                  >
+                    <h4 className="font-medium text-sm">{phases[6].name}</h4>
+                    <p className="text-xs text-gray-700">{phases[6].description}</p>
+                  </div>
+                </div>
                 
-                timelineAxis.appendChild(createElement('div', { 
-                    className: 'absolute left-0 w-2/3 h-1 bg-gray-300 top-0' 
-                }));
-                
-                [0, 25, 50, 75, 100].forEach(percent => {
-                    timelineAxis.appendChild(createElement('div', {
-                        className: 'absolute h-3 w-0.5 bg-gray-400 top-0',
-                        style: { left: `${percent}%` }
-                    }));
-                });
-                
-                ganttContainer.appendChild(timelineAxis);
-                
-                return ganttContainer;
-            };
-            
-            container.appendChild(renderGanttChart());
-            
-            // Phase sliders
-            const renderPhaseSliders = () => {
-                const slidersContainer = createElement('div', { className: 'mb-8' });
-                slidersContainer.appendChild(createElement('h3', { 
-                    className: 'font-bold mb-3' 
-                }, 'Adjust Phase Durations'));
-                
-                const slidersGrid = createElement('div', { 
-                    className: 'grid grid-cols-1 md\\:grid-cols-2 gap-4' 
-                });
-                
-                getPhases().forEach(phase => {
-                    const sliderWrapper = createElement('div', { 
-                        className: `mb-3 ${!phase.visible ? 'opacity-50' : ''}` 
-                    });
-                    
-                    // Label with current value
-                    const labelEl = createElement('label', { 
-                        className: 'block mb-2 text-sm font-medium' 
-                    });
-                    
-                    labelEl.appendChild(document.createTextNode(`${phase.name}: `));
-                    labelEl.appendChild(createElement('span', { 
-                        className: 'font-semibold' 
-                    }, `${phase.days} days`));
-                    
-                    if (phase.group === "parallel") {
-                        labelEl.appendChild(createElement('span', { 
-                            className: 'ml-2 text-xs text-gray-500' 
-                        }, '(Parallel process)'));
-                    }
-                    
-                    sliderWrapper.appendChild(labelEl);
-                    
-                    // Slider controls
-                    const sliderControls = createElement('div', { 
-                        className: 'flex items-center gap-2' 
-                    });
-                    
-                    // Color indicator
-                    sliderControls.appendChild(createElement('div', { 
-                        className: `w-3 h-3 rounded-full ${phase.color}` 
-                    }));
-                    
-                    // Range input
-                    const slider = createElement('input', {
-                        type: 'range',
-                        min: phase.min,
-                        max: phase.max,
-                        value: phase.days,
-                        className: 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer',
-                        disabled: !phase.visible,
-                        onChange: (e) => {
-                            phase.setDays(parseInt(e.target.value));
-                            renderApp();
-                        }
-                    });
-                    
-                    sliderControls.appendChild(slider);
-                    
-                    // Max value label
-                    sliderControls.appendChild(createElement('span', { 
-                        className: 'text-xs' 
-                    }, `${phase.max}d`));
-                    
-                    sliderWrapper.appendChild(sliderControls);
-                    slidersGrid.appendChild(sliderWrapper);
-                });
-                
-                slidersContainer.appendChild(slidersGrid);
-                return slidersContainer;
-            };
-            
-            container.appendChild(renderPhaseSliders());
-            
-            // Phase details
-            const renderPhaseDetails = () => {
-                const detailsContainer = createElement('div', { 
-                    className: 'grid grid-cols-1 md\\:grid-cols-3 gap-4' 
-                });
-                const phases = getPhases();
-                
-                // Pre-PBG Phases
-                const prePBGContainer = createElement('div', { className: 'space-y-3' });
-                prePBGContainer.appendChild(createElement('h3', { 
-                    className: 'font-bold border-b pb-1' 
-                }, 'Pre-PBG Phases'));
-                
-                phases.slice(0, 3).forEach(phase => {
-                    const phaseDetail = createElement('div', {
-                        className: `p-2 border-l-4 ${phase.borderColor} ${phase.bgColor} ${!phase.visible ? 'opacity-50' : ''}`
-                    });
-                    
-                    phaseDetail.appendChild(createElement('h4', { 
-                        className: 'font-medium text-sm' 
-                    }, phase.name));
-                    
-                    phaseDetail.appendChild(createElement('p', { 
-                        className: 'text-xs text-gray-700' 
-                    }, phase.description));
-                    
-                    prePBGContainer.appendChild(phaseDetail);
-                });
-                
-                detailsContainer.appendChild(prePBGContainer);
-                
-                // PBG & Parallel Processes
-                const pbgContainer = createElement('div', { className: 'space-y-3' });
-                pbgContainer.appendChild(createElement('h3', { 
-                    className: 'font-bold border-b pb-1' 
-                }, 'PBG & Parallel Processes'));
-                
-                const createDetailCard = (phase, isParallel = false) => {
-                    const card = createElement('div', {
-                        className: `p-2 border-l-4 ${phase.borderColor} ${phase.bgColor} ${!phase.visible ? 'opacity-50' : ''}`
-                    });
-                    
-                    const title = createElement('h4', { className: 'font-medium text-sm' }, phase.name);
-                    
-                    if (isParallel) {
-                        title.appendChild(createElement('span', { 
-                            className: 'text-xs text-gray-500 ml-2' 
-                        }, '(Parallel)'));
-                    }
-                    
-                    card.appendChild(title);
-                    card.appendChild(createElement('p', { 
-                        className: 'text-xs text-gray-700' 
-                    }, phase.description));
-                    
-                    return card;
-                };
-                
-                pbgContainer.appendChild(createDetailCard(phases[3])); // PBG Permit
-                pbgContainer.appendChild(createDetailCard(phases[4], true)); // Green Cert
-                pbgContainer.appendChild(createDetailCard(phases[5])); // Site Prep
-                pbgContainer.appendChild(createDetailCard(phases[6])); // Foundation
-                
-                detailsContainer.appendChild(pbgContainer);
-                
-                // Construction Completion
-                const constructionContainer = createElement('div', { className: 'space-y-3' });
-                constructionContainer.appendChild(createElement('h3', { 
-                    className: 'font-bold border-b pb-1' 
-                }, 'Construction Completion'));
-                
-                phases.slice(7, 10).forEach(phase => {
-                    constructionContainer.appendChild(createDetailCard(phase));
-                });
-                
-                detailsContainer.appendChild(constructionContainer);
-                
-                return detailsContainer;
-            };
-            
-            container.appendChild(renderPhaseDetails());
-            
-            // Footer
-            container.appendChild(createElement('div', { 
-                className: 'text-center text-gray-500 text-xs mt-8' 
-            }, 'MBR Housing Project Timeline Tool | Created for Low-Income Housing Projects in Indonesia'));
-            
-            return container;
+                <div className="space-y-3">
+                  <h3 className="font-bold border-b pb-1">Construction Completion</h3>
+                  {phases.slice(7, 10).map((phase) => (
+                    <div 
+                      key={phase.id}
+                      className={`p-2 border-l-4 ${phase.borderColor} ${phase.bgColor} ${!phase.visible ? 'opacity-50' : ''}`}
+                    >
+                      <h4 className="font-medium text-sm">{phase.name}</h4>
+                      <p className="text-xs text-gray-700">{phase.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
         };
-        
-        // Render function to update the UI
-        const renderApp = () => {
-            const appContainer = document.getElementById('app');
-            appContainer.innerHTML = '';
-            appContainer.appendChild(TimelineChart());
-        };
-        
-        // Initial render
-        renderApp();
-        
-        // Add listeners for phase state changes to trigger re-renders
-        [
-            subscribeInception,
-            subscribeDesign,
-            subscribeDrafting,
-            subscribePermit,
-            subscribeGreenCert,
-            subscribeSitePrep,
-            subscribeFoundation,
-            subscribeStructure,
-            subscribeFinishing,
-            subscribeHandover,
-            subscribeVisibility
-        ].forEach(subscribe => {
-            subscribe(renderApp);
-        });
+
+        ReactDOM.render(<TimelineChart />, document.getElementById('root'));
     </script>
 </body>
 </html>
