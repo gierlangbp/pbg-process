@@ -28,7 +28,7 @@
           const [finishingDays, setFinishingDays] = useState(25); // Finishing work
           const [handoverDays, setHandoverDays] = useState(7); // Final inspection & handover
           
-          // Visibility toggles for each phase
+          // Visibility toggles for each phase - default to "Not Using Prototype" (all phases visible)
           const [phaseVisibility, setPhaseVisibility] = useState({
             inception: true,
             design: true,
@@ -300,6 +300,45 @@
               {/* Phase visibility toggles */}
               <div className="mb-6">
                 <h3 className="font-bold mb-3">Toggle Phase Visibility</h3>
+                
+                {/* Main selection options */}
+                <div className="mb-4 flex flex-wrap gap-3">
+                  <button 
+                    onClick={() => setPhaseVisibility({
+                      inception: true,
+                      design: false,
+                      drafting: false,
+                      permit: true,
+                      greenCert: false,
+                      sitePrep: true,
+                      foundation: true,
+                      structure: true,
+                      finishing: true,
+                      handover: true
+                    })}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                  >
+                    Using Prototype
+                  </button>
+                  <button 
+                    onClick={() => setPhaseVisibility({
+                      inception: true,
+                      design: true,
+                      drafting: true,
+                      permit: true,
+                      greenCert: true,
+                      sitePrep: true,
+                      foundation: true,
+                      structure: true,
+                      finishing: true,
+                      handover: true
+                    })}
+                    className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors"
+                  >
+                    Not Using Prototype (All Phases)
+                  </button>
+                </div>
+                
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                   {phases.map((phase) => (
                     <div key={phase.id} className="flex items-center">
